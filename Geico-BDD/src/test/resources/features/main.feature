@@ -44,13 +44,12 @@ Feature: Main Page Related Scenarios
     And verify "<links>" are displayed
     Then verify "<currentUrl>"
     Examples:
-      | links                            | currentUrl                                          |
-      | Types of Web and Mobile Services | https://www.geico.com/web-and-mobile/               |
-      | GEICO Mobile App                 | https://www.geico.com/web-and-mobile/mobile-apps/   |
-      | GEICO Living                     | https://living.geico.com/                           |
-      | Social Media                     | https://www.geico.com/web-and-mobile/social-media/  |
-      | Site Map                         | https://www.geico.com/web-and-mobile/sitemap/       |
-      | Accessibility                    | https://www.geico.com/web-and-mobile/accessibility/ |
+      | links                            | currentUrl             |
+      | Types of Web and Mobile Services | https://www.geico.com/ |
+      | GEICO Living                     | https://www.geico.com/ |
+      | Social Media                     | https://www.geico.com/ |
+      | Site Map                         | https://www.geico.com/ |
+      | Accessibility                    | https://www.geico.com/ |
 
   @CBCF-17
   Scenario: Main - Espanol
@@ -59,9 +58,9 @@ Feature: Main Page Related Scenarios
 
   @CBCF-19
   Scenario Outline: Main - Log In - Access Your Policy
-    When the user clicks on "<Login>"
-    Then the user click on "<Auto>" drop down menu
-    And verify "<All policies"> is displayed
+    Then I click a "Log In" button
+    Then the user click on "Auto" drop down menu
+    And verify "<All policies>" is displayed
     Examples:
       | All policies           |
       | Auto                   |
@@ -83,4 +82,4 @@ Feature: Main Page Related Scenarios
       | Business Owners        |
       | General Liability      |
       | Professional Liability |
-      | Workers' Compensation  |
+

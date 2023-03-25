@@ -5,7 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.MainPage;
@@ -81,19 +83,25 @@ public class MainSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-    @When("the user click on {string} drop down menu")
-    public void theUserClickOnDropDownMenu(String dropDownMenu) {
-//        BrowserUtils.click(BrowserUtils.getDriver().findElement(
-//                By.xpath("/html//select[@id='manage_select']")));
-        Select menuItem = new Select(BrowserUtils.getDriver().findElement
-                (By.xpath("/html//select[@id='manage_select']")));
-        menuItem.selectByVisibleText("Auto");
-        menuItem.selectByVisibleText("Motorcycle");
-    }
-
-    @Then("verify {string}> is displayed")
+    @And("verify {string} is displayed")
     public void verifyIsDisplayed(String policies) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement
                 (By.xpath(String.format(XPATH_TEMPLATE_TEXT, policies))));
     }
-}
+
+    @Then("the user click on {string} drop down menu")
+    public void theUserClickOnDropDownMenu(String arg0) {
+        WebElement btn = BrowserUtils.getDriver().findElement
+                (By.xpath("/html//select[@id='manage_select']"));
+        JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
+        j.executeScript("arguments[0].click();", btn);
+
+    }
+
+    @Then("I click a {string} button")
+    public void iClickAButton(String loginBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, loginBtn))));
+    }
+
+    }
+
