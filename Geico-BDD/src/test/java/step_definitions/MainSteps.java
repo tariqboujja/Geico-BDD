@@ -125,8 +125,6 @@ public class MainSteps implements CommonPage {
 
     @Then("a user clicks on {string} link")
     public void aUserClicksOnLink(String activateAccountBtn) {
-//        BrowserUtils.click(BrowserUtils.getDriver().findElement
-//                (By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, activateAccountBtn))));
         WebElement btn = BrowserUtils.getDriver().findElement
                 (By.cssSelector("div#manage_ecams_form > ul > li:nth-of-type(1) > a"));
         JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
@@ -139,5 +137,17 @@ public class MainSteps implements CommonPage {
 
     }
 
+    // @CBCF-22
+     @Then("user clicks on {string}")
+    public void userClicksOn(String arg0) {
+        WebElement btn = BrowserUtils.getDriver().findElement(By.xpath
+                ("/html//nav[@id='primary-navigation']/div[2]//div[@class='claims']/ul//a[@href='https://geico.app.link/static/claims']"));
+        JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
+        j.executeScript("arguments[0].click();", btn);
+    }
+    @And("verifies the title of the page {string}")
+    public void verifiesTheTitleOfThePage(String reportAccidentPageTitle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), reportAccidentPageTitle);
+    }
 }
 
