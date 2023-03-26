@@ -91,10 +91,18 @@ Feature: Main Page Related Scenarios
       | Professional Liability |
 
   @CBCF-20
-  Scenario: Main page Login - New user - Activation page
+  Scenario: Main page - Login - New user - Activation page
     Then I click a "Log In" button
     Then a user clicks on "Activate Account" link
     And verify  title of the page "Online Service Center | GEICO"
+
+  @CBCF-22
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then  user clicks on "Report an accident"
+    And verifies the title of the page "Report a Claim"
+
+
 
 
 
