@@ -36,6 +36,13 @@ Feature: Main Page Related Scenarios
       | Wellness & Fitness          |
       | Commercial Auto             |
 
+  @CBCF-15
+  Scenario: Main page - Menu - Information
+    When user clicks on "Menu" button
+    Then user clicks on "Information" link
+    Then  user clicks  "Contact Us"
+    And verify the title of that page "Contact GEICO Customer Service: Chat, Email & More | GEICO"
+
   @CBCF-16
   Scenario Outline: Main page - Menu - Information
     When the user clicks on "Menu" button
@@ -82,4 +89,12 @@ Feature: Main Page Related Scenarios
       | Business Owners        |
       | General Liability      |
       | Professional Liability |
+
+  @CBCF-20
+  Scenario: Main page Login - New user - Activation page
+    Then I click a "Log In" button
+    Then a user clicks on "Activate Account" link
+    And verify  title of the page "Online Service Center | GEICO"
+
+
 
