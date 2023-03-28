@@ -102,6 +102,24 @@ Feature: Main Page Related Scenarios
     Then  user clicks on "Report an accident"
     And verifies the title of the page "Report a Claim"
 
+  @CBCF-23
+  Scenario: Main page - Login - Claim Center
+    When I click a "Log In" button
+    Then I click on "Track a claim" link
+    And user verify the title of the page "Access Your Claim"
+
+  @CBCF-25
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then I click  "Request roadside assistance"
+    And I verify the title of the page "Report a Claim"
+
+    @CBCF-29
+    Scenario: Main page Login - Feedback - Website Feedback page
+      When I click a "Log In" button
+      Then I click  "Feedback" button
+      And verify page title "An Insurance Company For Your Car And More | GEICO"
+
 
 
 

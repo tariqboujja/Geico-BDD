@@ -138,16 +138,56 @@ public class MainSteps implements CommonPage {
     }
 
     // @CBCF-22
-     @Then("user clicks on {string}")
+    @Then("user clicks on {string}")
     public void userClicksOn(String arg0) {
         WebElement btn = BrowserUtils.getDriver().findElement(By.xpath
                 ("/html//nav[@id='primary-navigation']/div[2]//div[@class='claims']/ul//a[@href='https://geico.app.link/static/claims']"));
         JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
         j.executeScript("arguments[0].click();", btn);
     }
+
     @And("verifies the title of the page {string}")
     public void verifiesTheTitleOfThePage(String reportAccidentPageTitle) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), reportAccidentPageTitle);
+    }
+
+    // @CBCF-23
+    @Then("I click on {string} link")
+    public void iClickOnLink(String trackClaim) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, trackClaim))));
+    }
+
+    @And("user verify the title of the page {string}")
+    public void userVerifyTheTitleOfThePage(String trackClaimTitle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), trackClaimTitle);
+    }
+
+    // @CBCF-25
+    @Then("I click  {string}")
+    public void iClick(String requestRoadsideAssistanceBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, requestRoadsideAssistanceBtn))));
+
+    }
+
+    @And("I verify the title of the page {string}")
+    public void iVerifyTheTitleOfThePage(String roadsideAssistanceTitle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), roadsideAssistanceTitle);
+    }
+
+    // @CBCF-29
+    @Then("I click  {string} button")
+    public void iClickButton(String feedbackBtn) {
+        WebElement btn = BrowserUtils.getDriver().findElement(By.xpath
+                ("/html//button[@id='QSIFeedbackButton-btn']"));
+        JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
+        j.executeScript("arguments[0].click();", btn);
+    }
+
+    @And("verify page title {string}")
+    public void verifyPageTitle(String feedbackTitle) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), feedbackTitle);
     }
 }
 
