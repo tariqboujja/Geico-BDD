@@ -36,6 +36,13 @@ Feature: Main Page Related Scenarios
       | Wellness & Fitness          |
       | Commercial Auto             |
 
+  @CBCF-15
+  Scenario: Main page - Menu - Information
+    When user clicks on "Menu" button
+    Then user clicks on "Information" link
+    Then  user clicks  "Contact Us"
+    And verify the title of that page "Contact GEICO Customer Service: Chat, Email & More | GEICO"
+
   @CBCF-16
   Scenario Outline: Main page - Menu - Information
     When the user clicks on "Menu" button
@@ -82,4 +89,38 @@ Feature: Main Page Related Scenarios
       | Business Owners        |
       | General Liability      |
       | Professional Liability |
+
+  @CBCF-20
+  Scenario: Main page - Login - New user - Activation page
+    Then I click a "Log In" button
+    Then a user clicks on "Activate Account" link
+    And verify  title of the page "Online Service Center | GEICO"
+
+  @CBCF-22
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then  user clicks on "Report an accident"
+    And verifies the title of the page "Report a Claim"
+
+  @CBCF-23
+  Scenario: Main page - Login - Claim Center
+    When I click a "Log In" button
+    Then I click on "Track a claim" link
+    And user verify the title of the page "Access Your Claim"
+
+  @CBCF-25
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then I click  "Request roadside assistance"
+    And I verify the title of the page "Report a Claim"
+
+    @CBCF-29
+    Scenario: Main page Login - Feedback - Website Feedback page
+      When I click a "Log In" button
+      Then I click  "Feedback" button
+      And verify page title "An Insurance Company For Your Car And More | GEICO"
+
+
+
+
 
