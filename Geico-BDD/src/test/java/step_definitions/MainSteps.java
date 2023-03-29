@@ -14,8 +14,6 @@ import utils.BrowserUtils;
 
 public class MainSteps implements CommonPage {
     MainPage page;
-    WebDriver driver;
-
 
     public MainSteps() {
         page = new MainPage();
@@ -27,167 +25,245 @@ public class MainSteps implements CommonPage {
         BrowserUtils.getDriver();
     }
 
+    // @CBCF-5
     @Then("verify Title of the Main Page {string}")
     public void verifyTitleOfTheMainPage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-    @When("the user clicks on {string} button")
-    public void theUserClicksOnButton(String menu) {
+    // @CBCF-5
+    @When("I click on the {string} button")
+    public void iClickOnTheButton(String menu) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, menu))));
     }
 
-    @Then("verify Menu {string} are displayed")
-    public void verifyMenuAreDisplayed(String menuLinks) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, menuLinks))));
+    // @CBCF-5
+    @And("I click  the {string} button")
+    public void iClickTheButton(String insurance) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, insurance))));
     }
 
-    @And("the user clicks on {string} link")
-    public void theUserClicksOnLink(String insuranceButton) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, insuranceButton))));
+    // @CBCF-5
+    @Then("I click {string} button")
+    public void iClickButton(String propertyInsurance) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, propertyInsurance))));
     }
 
-    @Then("verify {string} are displayed")
-    public void verifyAreDisplayed(String businessInsuranceLinks) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, businessInsuranceLinks))));
+    // @CBCF-5
+    @Then("I click the links on the Insurance {string}")
+    public void iClickTheLinksOnTheInsurance(String links) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS2, links))));
+        System.out.println(BrowserUtils.getDriver().getTitle());
     }
 
-    @Then("verify the title of that page {string}")
-    public void verifyTheTitleOfThatPage(String arg0) {
-    }
-
-    //  @CBCF-15
-    @When("user clicks on {string} button")
-    public void userClicksOnButton(String menu) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, menu))));
-    }
-
-    @Then("user clicks on {string} link")
-    public void userClicksOnLink(String information) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, information))));
-    }
-
-    @When("user clicks  {string}")
-    public void userClicks(String contactUs) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT2_CONTAINS, contactUs))));
-    }
-
-    @Then("verify {string}")
-    public void verify(String currentUrl) {
+    // @CBCF-5
+    @And("verify current url {string}")
+    public void verifyCurrentUrl(String currentUrl) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getCurrentUrl(), currentUrl);
     }
 
-    //  @CBCF-16
-    @Then("verify Types of Web and Mobile Services are displayed")
-    public void verify_types_of_web_and_mobile_services_are_displayed(String webAndMobileLinks) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT2, webAndMobileLinks))));
+    // @CBCF-4
+    @Then("I click  on {string} button")
+    public void iClickOnButton(String vehicleInsurance) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, vehicleInsurance))));
     }
 
-    //  @CBCF-17
-    @When("the user clicks on {string}")
-    public void theUserClicksOn(String espanolButton) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.linkText("Español")));
-        //(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, espanolButton))));
+    // @CBCF-4
+    @Then("I click on the links on the Insurance {string}")
+    public void iClickOnTheLinksOnTheInsurance(String links) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS2, links))));
+
     }
 
-    @Then("verify the title of the page {string}")
-    public void verifyTheTitleOfThePage(String title) {
-        title = "Una Compañía de Seguros para Tu Auto y Más | GEICO";
+    // @CBCF-8
+    @Then("I click Insurance links buttons")
+    public void iClickInsuranceLinksButtons() {
+        page.clickOnInsuranceLink();
+
+    }
+
+    @Then("I should click the {string} link button")
+    public void iShouldClickTheLinkButton(String Information) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, Information))));
+    }
+
+    @Then("I click the {string} link button")
+    public void iClickTheLinkButton(String aboutGeico) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, aboutGeico))));
+    }
+
+
+    @And("verify ann click {string} under Information")
+    public void verifyAnnClickUnderInformation(String links) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, links))));
+    }
+
+
+    @Then("I click  {string} link button")
+    public void iClickLinkButton(String toolsAndResources) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, toolsAndResources))));
+    }
+
+
+    @And("Verify the links are displayed")
+    public void verifyTheLinksAreDisplayed() {
+        page.toolsAndResources();
+    }
+
+    @Then("I verify the {string} is displayed")
+    public void iVerifyTheIsDisplayed(String search) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, search))));
+    }
+
+    @And("I verify a {string} is displayed")
+    public void iVerifyAIsDisplayed(String searchBox) {
+        BrowserUtils.isDisplayed(page.searchBox);
+    }
+
+    @When("I enter {string} in the search box")
+    public void iEnterInTheSearchBox(String info) {
+
+        page.searchBox();
+    }
+
+    @Then("I click on the {string} button and verify the current url")
+    public void iClickOnTheButtonAndVerifyTheCurrentUrl(String searchBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, searchBtn))));
+        System.out.println(BrowserUtils.getDriver().getCurrentUrl());
+    }
+
+    @When("I verify the {string} button is displayed")
+    public void iVerifyTheButtonIsDisplayed(String login) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, login))));
+
+    }
+
+
+    @Then("I click a {string} button")
+    public void iClickAButton(String loginBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, loginBtn))));
+    }
+
+    @And("options {string}, {string}, and {string} should be displayed")
+    public void optionsAndShouldBeDisplayed(String policyAccess, String claimCenter, String location) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, policyAccess))));
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, claimCenter))));
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, location))));
+    }
+
+    @And("click  on {string} button")
+    public void clickOnButton(String glassDamageOnly) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, glassDamageOnly))));
+    }
+
+    @Then("it should navigate to the Report Claim page and verify title of the page {string}")
+    public void itShouldNavigateToTheReportClaimPageAndVerifyTitleOfThePage(String title) {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-    // @CBCF-19
-    @Then("the user click on {string} drop down menu")
-    public void theUserClickOnDropDownMenu(String arg0) {
-        WebElement btn = BrowserUtils.getDriver().findElement
-                (By.xpath("/html//select[@id='manage_select']"));
+    @And("verify the Report a Claim form is displayed")
+    public void verifyTheReportAClaimFormIsDisplayed() {
+        BrowserUtils.isDisplayed(page.glassDamageForm);
+    }
+
+    @And("Verify the {string} sign is displayed")
+    public void verifyTheSignIsDisplayed(String location) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, location))));
+    }
+
+    @And("Verify the location box is displayed")
+    public void verifyTheLocationBoxIsDisplayed() {
+        BrowserUtils.isDisplayed(page.zipCodeBox);
+    }
+    @Then("I type a zip code in the location box")
+    public void iTypeAZipCodeInTheLocationBox() {
+        BrowserUtils.sendKeys(page.zipCodeBox, "32822");
+    }
+    @And("click on the {string} button")
+    public void clickOnTheButton(String updateBtn) {
+        BrowserUtils.isEnabled(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, updateBtn))));
+        WebElement btn = BrowserUtils.getDriver().findElement(By.xpath("//*[text()='Update']"));
         JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
         j.executeScript("arguments[0].click();", btn);
     }
-
-    @And("verify {string} is displayed")
-    public void verifyIsDisplayed(String policies) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, policies))));
+    @Then("Verify the the new zip code is displayed")
+    public void verifyTheTheNewZipCodeIsDisplayed() {
+        BrowserUtils.isDisplayed(page.newZipCode);
+        System.out.println(page.newZipCode.getText());
     }
 
-    // @CBCF-20
-    @Then("I click a {string} button")
-    public void iClickAButton(String loginBtn) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, loginBtn))));
+    @Then("I verify {string} is displayed")
+    public void iVerifyIsDisplayed(String topSerches) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, topSerches))));
     }
 
-    @Then("a user clicks on {string} link")
-    public void aUserClicksOnLink(String activateAccountBtn) {
-        WebElement btn = BrowserUtils.getDriver().findElement
-                (By.cssSelector("div#manage_ecams_form > ul > li:nth-of-type(1) > a"));
-        JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
-        j.executeScript("arguments[0].click();", btn);
+
+    @Then("I click on the {string} link")
+    public void iClickOnTheLink(String links) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, links))));
     }
 
-    @And("verify  title of the page {string}")
-    public void verifyTitleOfThePage(String activateAccountPageTitle) {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), activateAccountPageTitle);
-
+    @And("verify title of the page {string}")
+    public void verifyTitleOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-    // @CBCF-22
-    @Then("user clicks on {string}")
-    public void userClicksOn(String arg0) {
-        WebElement btn = BrowserUtils.getDriver().findElement(By.xpath
-                ("/html//nav[@id='primary-navigation']/div[2]//div[@class='claims']/ul//a[@href='https://geico.app.link/static/claims']"));
-        JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
-        j.executeScript("arguments[0].click();", btn);
+    @Then("it should navigate to the Web & Mobile page and verify title {string}")
+    public void itShouldNavigateToTheWebMobilePageAndVerifyTitle(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 
-    @And("verifies the title of the page {string}")
-    public void verifiesTheTitleOfThePage(String reportAccidentPageTitle) {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), reportAccidentPageTitle);
+    @And("click  on {string} btn")
+    public void clickOnBtn(String btn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, btn))));
     }
 
-    // @CBCF-23
-    @Then("I click on {string} link")
-    public void iClickOnLink(String trackClaim) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, trackClaim))));
+
+
+    @And("Verify the Change location button is displayed")
+    public void verifyTheChangeLocationButtonIsDisplayed() {
+        BrowserUtils.isDisplayed(page.changeLocation);
     }
 
-    @And("user verify the title of the page {string}")
-    public void userVerifyTheTitleOfThePage(String trackClaimTitle) {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), trackClaimTitle);
+    @Then("I click on the Change location button")
+    public void iClickOnTheChangeLocationButton() {
+        BrowserUtils.click(page.changeLocation);
     }
 
-    // @CBCF-25
-    @Then("I click  {string}")
-    public void iClick(String requestRoadsideAssistanceBtn) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement
-                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, requestRoadsideAssistanceBtn))));
+
+    @Then("I click btn")
+    public void iClickBtn() {
+        BrowserUtils.click(page.closeLoginWindowBtn);
+    }
+
+    @And("I click the button to change the screen mode")
+    public void iClickTheButtonToChangeTheScreenMode() {
+        BrowserUtils.click(page.darkModeSwitchButton);
 
     }
 
-    @And("I verify the title of the page {string}")
-    public void iVerifyTheTitleOfThePage(String roadsideAssistanceTitle) {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), roadsideAssistanceTitle);
-    }
-
-    // @CBCF-29
-    @Then("I click  {string} button")
-    public void iClickButton(String feedbackBtn) {
-        WebElement btn = BrowserUtils.getDriver().findElement(By.xpath
-                ("/html//button[@id='QSIFeedbackButton-btn']"));
-        JavascriptExecutor j = (JavascriptExecutor) BrowserUtils.getDriver();
-        j.executeScript("arguments[0].click();", btn);
-    }
-
-    @And("verify page title {string}")
-    public void verifyPageTitle(String feedbackTitle) {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), feedbackTitle);
+    @Then("I verify the screen mode is changed")
+    public void iVerifyTheScreenModeIsChanged() {
+        BrowserUtils.isDisplayed(page.darkModeSwitch);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
