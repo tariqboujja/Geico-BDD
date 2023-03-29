@@ -114,11 +114,11 @@ Feature: Main Page Related Scenarios
     Then I click  "Request roadside assistance"
     And I verify the title of the page "Report a Claim"
 
-    @CBCF-29
-    Scenario: Main page Login - Feedback - Website Feedback page
-      When I click a "Log In" button
-      Then I click  "Feedback" button
-      And verify page title "An Insurance Company For Your Car And More | GEICO"
+  @CBCF-29
+  Scenario: Main page Login - Feedback - Website Feedback page
+    When I click a "Log In" button
+    Then I click  "Feedback" button
+    And verify page title "An Insurance Company For Your Car And More | GEICO"
 
 
 
