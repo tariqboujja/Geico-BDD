@@ -4,11 +4,11 @@ Feature: Main Page Related Scenarios
     Given I open url of mainpage
 
 
-  @CBCF-1 @smoke
+  @CBCF-1 @smoke @regression
   Scenario: Title of the mainpage
     Then verify Title of the Main Page "An Insurance Company For Your Car And More | GEICO"
 
-  @CBCF-4
+  @CBCF-4 @regression
   Scenario Outline: Verify the links of Vehicle Insurance on the main page
     When I click on the "Menu" button
     And I click  the "Insurance" button
@@ -29,7 +29,7 @@ Feature: Main Page Related Scenarios
       | Mexico Auto                | https://www.geico.com/mexico-auto-insurance/     |
 
 
-  @CBCF-5
+  @CBCF-5 @regression
   Scenario Outline: Verify the links of Property Insurance on the main page
     When I click on the "Menu" button
     And I click  the "Insurance" button
@@ -48,13 +48,13 @@ Feature: Main Page Related Scenarios
       | Flood                       | https://www.geico.com/flood-insurance/       |
       | Earthquake                  | https://www.geico.com/earthquake-insurance/  |
 
-  @CBCF-8 @smoke
+  @CBCF-8 @smoke @regression
   Scenario: The Back button of the Menu links
     When I click on the "Menu" button
     And I click  the "Insurance" button
     Then I click Insurance links buttons
 
-  @CBCF-12
+  @CBCF-12  @regression
   Scenario: Menu - Information Link - Tools and Resources
     When I click on the "Menu" button
     Then I should click the "Information" link button
@@ -62,7 +62,7 @@ Feature: Main Page Related Scenarios
     And Verify the links are displayed
 
 
-  @CBCF-13
+  @CBCF-13 @regression
   Scenario Outline: Verify Menu - Information Link - About GEICO
     When I click on the "Menu" button
     Then I should click the "Information" link button
@@ -84,7 +84,7 @@ Feature: Main Page Related Scenarios
       | Insurers                  | https://www.geico.com/about/corporate/corporate-ownership/                                                                                  |
       | GEICO Commercials         | https://www.geico.com/about/commercials/                                                                                                    |
 
-  @CBCF-16
+  @CBCF-16 @regression
   Scenario: Main Page: Search Box
     When I click on the "Menu" button
     Then I verify the "Search geico.com" is displayed
@@ -92,13 +92,13 @@ Feature: Main Page Related Scenarios
     When I enter "Auto Insurance" in the search box
     Then I click on the "Search" button and verify the current url
 
-  @CBCF-18
+  @CBCF-18 @regression
   Scenario:Main page - Login access - Main 3 options
     When I verify the "Log In" button is displayed
     Then I click a "Log In" button
     And  options "Access Your Policy", "Claims Center", and "Location" should be displayed
 
-  @CBCF-21
+  @CBCF-21  @regression
   Scenario: Main page Login - Geico Mobile App - Web & Mobile page
     Then I click a "Log In" button
     And click  on "GEICO Mobile App" btn
@@ -106,14 +106,14 @@ Feature: Main Page Related Scenarios
 
     Then I click a "Log In" button
 
-  @CBCF-24
+  @CBCF-24  @regression
   Scenario: Main page Login - Claims Center - Report glass-only damage page
     Then I click a "Log In" button
     And click  on "Report glass-only damage" button
     Then it should navigate to the Report Claim page and verify title of the page "Report a Claim"
     And verify the Report a Claim form is displayed
 
-  @CBCF-26
+  @CBCF-26  @regression
   Scenario: Main page Login - Location - zip code update
     Then I click a "Log In" button
     And Verify the "Location" sign is displayed
@@ -122,7 +122,7 @@ Feature: Main Page Related Scenarios
     And  click on the "Update" button
     Then Verify the the new zip code is displayed
 
-  @CBCF-27
+  @CBCF-27  @regression
   Scenario:  Main page Login - Location - change Location
     Then I click a "Log In" button
     And Verify the "Location" sign is displayed
@@ -133,13 +133,13 @@ Feature: Main Page Related Scenarios
     And  click on the "Update" button
     Then Verify the the new zip code is displayed
 
-  @CBCF-28
+  @CBCF-28  @regression
   Scenario: Main page Login - pop-up window - close
     Then I click a "Log In" button
     Then I verify "Access Your Policy" is displayed
     Then I click btn
 
-  @CBCF-30
+  @CBCF-30  @regression
   Scenario Outline: Mane Page - Menu - Top Searches
     When I click on the "Menu" button
     Then I verify "Top Searches" is displayed
@@ -152,7 +152,7 @@ Feature: Main Page Related Scenarios
       | Contact Us             | Contact GEICO Customer Service: Chat, Email & More \| GEICO |
       | Get An Insurance Quote | An Insurance Company For Your Car And More \| GEICO         |
 
-  @CBCF-31
+  @CBCF-31  @regression
   Scenario: Main Page - Menu - Dark Mode button
     When I click on the "Menu" button
     Then I verify the "Dark Mode" button is displayed
