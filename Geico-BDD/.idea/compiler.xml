@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Final-Project-team3" />
         <module name="team3_final" />
+        <module name="Geico-BDD" />
       </profile>
     </annotationProcessing>
   </component>
