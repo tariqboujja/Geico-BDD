@@ -161,6 +161,34 @@ Feature: Main Page Related Scenarios
 
     Then I click a "Log In" button
 
+    Then a user clicks on "Activate Account" link
+    And verify  title of the page "Online Service Center | GEICO"
+
+  @CBCF-22
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then  user clicks on "Report an accident"
+    And verifies the title of the page "Report a Claim"
+
+  @CBCF-23
+  Scenario: Main page - Login - Claim Center
+    When I click a "Log In" button
+    Then I click on "Track a claim" link
+    And user verify the title of the page "Access Your Claim"
+
+  @CBCF-25
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then I click  "Request roadside assistance"
+    And I verify the title of the page "Report a Claim"
+
+  @CBCF-29
+  Scenario: Main page Login - Feedback - Website Feedback page
+    When I click a "Log In" button
+    Then I click  "Feedback" button
+    And verify page title "An Insurance Company For Your Car And More | GEICO"
+
+
   @CBCF-24  @regression
   Scenario: Main page Login - Claims Center - Report glass-only damage page
     Then I click a "Log In" button
@@ -214,6 +242,65 @@ Feature: Main Page Related Scenarios
     And I click the button to change the screen mode
     Then I verify the screen mode is changed
 
+
+
+
+  @CBCF-1
+  Scenario: Title of the mainpage
+    Then verify Title of the Main Page "An Insurance Company For Your Car And More | GEICO"
+
+  @CBCF-3 @smoke @regression
+  Scenario Outline: Verify "Insurance options" are displayed
+    And  I click  button "Menu"
+    Then I click a button "Insurance"
+    Then Verify "<Insurance options>" are displayed
+
+    Examples:
+      | Insurance options    |
+      | Vehicle Insurance    |
+      | Property Insurance   |
+      | Business Insurance   |
+      | Additional Insurance |
+
+  @CBCF-7 @smoke @regression
+  Scenario Outline: Verify "AdditionalInsuranceLinks" are displayed
+    And  I click  button "Menu"
+    Then I click a button "Insurance"
+    Then I click the button "Additional Insurance"
+    Then I click "<AdditionalInsuranceLinks>"
+    Then Verify "<Url>"
+
+    Examples:
+      | AdditionalInsuranceLinks      | Url                                         |
+      | Types of Additional Insurance | https://www.geico.com/additional-insurance/ |
+      | Umbrella                      | https://www.geico.com/umbrella-insurance/   |
+      | Life                          | https://www.geico.com/life-insurance/       |
+      | Travel                        | https://www.geico.com/travel-insurance/     |
+      | Overseas                      | https://www.geico.com/overseas-insurance/   |
+      | Identity Protection           | https://www.geico.com/identity-protection/  |
+      | Pet                           | https://www.geico.com/pet-insurance/        |
+      | Jewelry                       | https://www.geico.com/jewelry-insurance/    |
+      | Event                         | https://www.geico.com/event-insurance/      |
+      | Bicycle                       | https://www.geico.com/bicycle-insurance/    |
+
+  @CBCF-9 @smoke @regression
+
+  Scenario Outline: Verify "Information link options" are displayed
+    And I click  button "Menu"
+    Then I click a button "Information"
+    Then Verify "<Information link options>" are displayed
+    Examples:
+      | Information link options |
+      | My Account               |
+      | Claims and Roadside Help |
+      | Tools and Resources      |
+      | About GEICO              |
+      | Web and Mobile           |
+  @CBCF-9 @smoke @regression
+  Scenario: Verify Contact Us is displayed under the Information
+    And I click  button "Menu"
+    Then I click a button "Information"
+    Then Verify Contact Us is displayed
 
 
 
