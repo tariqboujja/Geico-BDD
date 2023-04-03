@@ -107,6 +107,34 @@ Feature: Main Page Related Scenarios
 
     Then I click a "Log In" button
 
+    Then a user clicks on "Activate Account" link
+    And verify  title of the page "Online Service Center | GEICO"
+
+  @CBCF-22
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then  user clicks on "Report an accident"
+    And verifies the title of the page "Report a Claim"
+
+  @CBCF-23
+  Scenario: Main page - Login - Claim Center
+    When I click a "Log In" button
+    Then I click on "Track a claim" link
+    And user verify the title of the page "Access Your Claim"
+
+  @CBCF-25
+  Scenario: Main page - Login - Claims Center
+    When I click a "Log In" button
+    Then I click  "Request roadside assistance"
+    And I verify the title of the page "Report a Claim"
+
+  @CBCF-29
+  Scenario: Main page Login - Feedback - Website Feedback page
+    When I click a "Log In" button
+    Then I click  "Feedback" button
+    And verify page title "An Insurance Company For Your Car And More | GEICO"
+
+
   @CBCF-24  @regression
   Scenario: Main page Login - Claims Center - Report glass-only damage page
     Then I click a "Log In" button
@@ -159,7 +187,6 @@ Feature: Main Page Related Scenarios
     Then I verify the "Dark Mode" button is displayed
     And I click the button to change the screen mode
     Then I verify the screen mode is changed
-=======
   @CBCF-1
   Scenario: Title of the mainpage
     Then verify Title of the Main Page "An Insurance Company For Your Car And More | GEICO"
@@ -216,6 +243,7 @@ Feature: Main Page Related Scenarios
     And I click  button "Menu"
     Then I click a button "Information"
     Then Verify Contact Us is displayed
+
 
 
 
